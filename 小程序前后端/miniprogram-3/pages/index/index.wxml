@@ -1,0 +1,21 @@
+<view class="container">
+  <view class="finished-tasks">
+    <text>已完成任务列表：</text>
+    <view wx:for="{{finishedTasks.completed_tasks}}" wx:key="task" >
+      <text>{{item.content}}</text>
+    </view>
+  </view>
+
+  <view class="add-task-input">
+    <input placeholder="输入新任务" value="{{inputTask}}" bindinput="onInputTaskChange"></input>
+    <button bindtap="onAddTask">添加任务</button>
+  </view>
+
+  <button bindtap="onRandomTask">随机抽取任务</button>
+
+  <view wx:if="{{selectedTask}}">
+    <text>抽取到的任务：{{selectedTask}}</text>
+    <button bindtap="onTaskDone">已完成</button>
+    <button bindtap="onTaskAbandon">放弃</button>
+  </view>
+</view>
